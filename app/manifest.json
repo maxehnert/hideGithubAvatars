@@ -38,5 +38,9 @@
       "run_at": "document_end",
       "all_frames": false
     }
+  ],
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking"
   ]
 }

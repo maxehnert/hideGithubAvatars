@@ -10,7 +10,7 @@ console.log('\'Allo \'Allo! Event Page for Browser Action');
 
 chrome.webRequest.onBeforeRequest.addListener(
         function(details) {
-          return {cancel: details.url.indexOf("*://avatars1.githubusercontent.com/u/*/") != -1};
+          return {cancel: details.url.indexOf("://avatars1.githubusercontent.com/u/*") != -1};
         },
         {urls: ["<all_urls>"]},
         ["blocking"]);

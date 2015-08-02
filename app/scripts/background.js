@@ -1,19 +1,33 @@
 'use strict';
 
-chrome.runtime.onInstalled.addListener(function (details) {
-  console.log('previousVersion', details.previousVersion);
-});
+// chrome.runtime.onInstalled.addListener(function (details) {
+// //  console.log('previousVersion', details.previousVersion);
+// });
 
-chrome.browserAction.setBadgeText({text: '\'Allo'});
+//chrome.browserAction.setBadgeText({text: '\'Allo'});
 
-console.log('\'Allo \'Allo! Event Page for Browser Action');
+//console.log('\'Allo \'Allo! Event Page for Browser Action');
 
 chrome.webRequest.onBeforeRequest.addListener(
         function(details) {
-          return {cancel: details.url.indexOf("://avatars1.githubusercontent.com/u/*") != -1};
+          // return {cancel: [
+          //   details.url.indexOf("://avatars1.githubusercontent.com/u/*") != -1, details.url.indexOf("://avatars2.githubusercontent.com/u/*") != -1, details.url.indexOf("://avatars3.githubusercontent.com/u/*") != -1, details.url.indexOf("://avatars4.githubusercontent.com/u/*") != -1
+          // ]};
+          return {cancel: [
+            details.url.indexOf("avatars1.githubusercontent.com/u/*") != -1, details.url.indexOf("avatars2.githubusercontent.com/u/*") != -1, details.url.indexOf("avatars3.githubusercontent.com/u/*") != -1, details.url.indexOf("avatars4.githubusercontent.com/u/*") != -1
+          ]};
         },
         {urls: ["<all_urls>"]},
-        ["blocking"]);
+        ["blocking"], console.log('does this work?'));
+console.log('\'Allo \'Allo! Event Page for Browser Action');
+/*
+https://avatars1.githubusercontent.com/u/4215517?v=3&s=40
+https://avatars1.githubusercontent.com/u/8755250?v=3&s=40
+
+https://avatars3.githubusercontent.com/u/110953?v=3&s=120
+
+https://avatars3.githubusercontent.com/u/8755250?v=3&s=460
+*/
 
 // 'use strict';
 //
